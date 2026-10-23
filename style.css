@@ -1,0 +1,139 @@
+.vc-void {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs, 8px);
+    width: var(--custom-guild-list-width, 72px);
+}
+
+.vc-void-expanded::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 50%;
+    width: var(--guildbar-folder-size, 56px);
+    transform: translateX(-50%);
+    box-sizing: border-box;
+    border: 1px solid var(--border-muted);
+    border-radius: var(--radius-lg, 16px);
+    background: var(--background-mod-subtle);
+    pointer-events: none;
+}
+
+.vc-void-item {
+    position: relative;
+    width: var(--guildbar-avatar-size, 40px);
+    height: var(--guildbar-avatar-size, 40px);
+}
+
+.vc-void-expanded .vc-void-item {
+    margin-top: calc((var(--guildbar-folder-size, 56px) - var(--guildbar-avatar-size, 40px)) / 2);
+}
+
+.vc-void-expanded > :last-child {
+    margin-bottom: calc((var(--guildbar-folder-size, 56px) - var(--guildbar-avatar-size, 40px)) / 2);
+}
+
+.vc-void-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-md, 12px);
+    background: var(--background-mod-strong);
+    color: var(--text-default);
+    cursor: pointer;
+    transition: background-color .15s ease-out, color .15s ease-out;
+}
+
+.vc-void-icon:hover,
+.vc-void-expanded .vc-void-icon {
+    background: var(--background-brand);
+    color: var(--white);
+}
+
+.vc-void-badge {
+    position: absolute;
+    right: -4px;
+    bottom: -4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    box-shadow: 0 0 0 3px var(--background-base-lowest, var(--background-tertiary));
+    background: var(--status-danger);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.vc-void-modal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-height: 120px;
+}
+
+.vc-void-modal-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 8px;
+    border-radius: var(--radius-sm, 8px);
+    cursor: pointer;
+    color: var(--text-default);
+}
+
+.vc-void-modal-active {
+    background: var(--background-mod-normal, var(--background-modifier-hover));
+}
+
+.vc-void-modal-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm, 8px);
+    object-fit: cover;
+}
+
+.vc-void-modal-acronym {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background-mod-strong);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.vc-void-modal-name {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.vc-void-modal-mentions {
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background: var(--status-danger);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    text-align: center;
+}
+
+.vc-void-modal-empty {
+    padding: 32px 0;
+    text-align: center;
+    color: var(--text-muted);
+}
