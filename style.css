@@ -62,6 +62,8 @@
     justify-content: center;
     min-width: 16px;
     height: 16px;
+    padding: 0 4px;
+    box-sizing: border-box;
     border-radius: 8px;
     box-shadow: 0 0 0 3px var(--background-base-lowest, var(--background-tertiary));
     background: var(--status-danger);
@@ -69,6 +71,19 @@
     font-size: 12px;
     font-weight: 700;
     line-height: 1;
+    pointer-events: none;
+}
+
+.vc-void-pill {
+    position: absolute;
+    top: 50%;
+    /* the left edge of the server list */
+    left: calc((var(--guildbar-avatar-size, 40px) - var(--custom-guild-list-width, 72px)) / 2);
+    width: 4px;
+    height: 8px;
+    margin-top: -4px;
+    border-radius: 0 4px 4px 0;
+    background: var(--text-strong, var(--header-primary));
     pointer-events: none;
 }
 
@@ -110,12 +125,57 @@
     font-weight: 600;
 }
 
-.vc-void-modal-name {
+.vc-void-modal-text {
+    display: flex;
     flex: 1;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.vc-void-modal-name,
+.vc-void-modal-when {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.vc-void-modal-name {
     font-weight: 500;
+}
+
+.vc-void-modal-unread {
+    color: var(--text-strong, var(--header-primary));
+    font-weight: 700;
+}
+
+.vc-void-modal-when {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.vc-void-modal-actions {
+    display: none;
+    gap: 4px;
+}
+
+.vc-void-modal-active .vc-void-modal-actions {
+    display: flex;
+}
+
+.vc-void-modal-action {
+    padding: 4px 8px;
+    border: none;
+    border-radius: var(--radius-xs, 4px);
+    background: var(--background-mod-strong);
+    color: var(--text-default);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.vc-void-modal-action:hover {
+    background: var(--background-brand);
+    color: var(--white);
 }
 
 .vc-void-modal-mentions {
@@ -136,4 +196,10 @@
     padding: 32px 0;
     text-align: center;
     color: var(--text-muted);
+}
+
+.vc-void-modal-hint {
+    padding: 8px 8px 0;
+    color: var(--text-muted);
+    font-size: 12px;
 }
